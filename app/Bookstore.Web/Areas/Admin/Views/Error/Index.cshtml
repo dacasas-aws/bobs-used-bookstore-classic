@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+
+@* PORT-TODO *@
+@* {"note": "The stylesheet /css/Error/index.css does not exist under wwwroot (only wwwroot/Content/css/site.css, styles.css, custom-style.css exist). Add wwwroot/css/Error/index.css (or move the error-template/errbutton/err-text rules into an existing stylesheet and point this link at it). The legacy nested <head> wrapper was removed because the Admin _Layout already renders <head>."} *@
+<link rel="stylesheet" href="/css/Error/index.css" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="error-template err-text">
+                <h1>
+                    Oops!
+                </h1>
+                @* PORT-TODO *@
+                @* {"note": "ErrorController.Index(int code) in the Admin area never sets ViewData[\"StatusCode\"] (the assignment is commented out), so the code renders blank. Set ViewData[\"StatusCode\"] = code in the controller.", "files": ["Areas/Admin/Controllers/ErrorController.cs"]} *@
+                <h2 class="err-text">
+                    Error Code @ViewData["StatusCode"]
+
+                </h2>
+                <div class="err-text">
+
+                    Sorry, an error has occurred
+                </div>
+                <div class="error-actions">
+                    <a href="javascript:history.go(-1)" class="errbutton" style="color:white;">
+                        <span class=" text-white "></span>
+                        Take Me Back
+                    </a>
+                    <a asp-area="" asp-action="Index" asp-controller="Home" class="errbutton" style="color:white;">
+                        <span class=" text-white err-text"></span>
+                        Home
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

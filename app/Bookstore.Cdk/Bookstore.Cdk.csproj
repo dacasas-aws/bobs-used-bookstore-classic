@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RollForward>Major</RollForward>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bookstore.Common\Bookstore.Common.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- NOTE: Amazon.CDK.Lib was bumped from 2.188.0 to 2.275.0. Keep the aws-cdk CLI (npm "aws-cdk") in step
+         with this library version (CLI must be >= the version the library's cloud-assembly schema requires). -->
+    <PackageReference Include="Amazon.CDK.Lib" Version="2.275.0" />
+    <!-- Stays on the CdkNag 2.x line (3.x is a major bump); 2.38.2 requires Amazon.CDK.Lib >= 2.176.0 and Constructs >= 10.5.1. -->
+    <PackageReference Include="Cdklabs.CdkNag" Version="2.38.2" />
+    <!-- Constructs 10.x; satisfies Amazon.CDK.Lib 2.275.0 (>= 10.5.0) and CdkNag 2.38.2 (>= 10.5.1). -->
+    <PackageReference Include="Constructs" Version="10.8.1" />
+    <!-- Pinned to match the minimum Amazon.JSII.Runtime (1.142.0) required by Amazon.CDK.Lib 2.275.0. -->
+    <PackageReference Include="Amazon.Jsii.Analyzers" Version="1.142.0" PrivateAssets="all" />
+  </ItemGroup>
+</Project>
